@@ -243,7 +243,7 @@ to find all the documents where the value of the age attribute is not greater th
 db.collection_name.find({age : {$ not: {$ gte : value}}})
 để tìm tất cả các tài liệu có giá trị của thuộc tính tuổi không lớn hơn hoặc bằng 'giá trị', tức là nhỏ hơn 'giá trị'
 
-## giá trị in ra phải nho hơn value đó ý nghĩa value này
+giá trị in ra phải nhỏ hơn value đó ý nghĩa value này
 
 Indexes -
 
@@ -300,15 +300,18 @@ db.students.find(): Dòng mã này nói với MongoDB để tìm tất cả các
 {\_ id:false, name:true, age:true}: Dòng mã này chỉ định các trường nên được trả về trong kết quả. Trường \_id là định danh duy nhất cho mỗi tài liệu, vì vậy nó không được bao gồm trong kết quả. Các trường name và age được bao gồm trong kết quả.
 
 Aggregation, replication, and sharding are three important concepts in MongoDB.
+
 Tập hợp, sao chép và phân đoạn là ba khái niệm quan trọng trong MongoDB.
 
 Aggregation is a way to process data in MongoDB. It allows you to perform complex queries on your data, such as grouping, sorting, and filtering.
 Tập hợp là một cách để xử lý dữ liệu trong MongoDB. Nó cho phép bạn thực hiện các truy vấn phức tạp trên dữ liệu của mình, chẳng hạn như nhóm, sắp xếp và lọc.
 
 Replication is a way to ensure that your data is always available. It involves copying your data to multiple servers, so that if one server fails, the others can still access your data.
+
 Sao chép là một cách để đảm bảo rằng dữ liệu của bạn luôn sẵn sàng. Nó liên quan đến việc sao chép dữ liệu của bạn vào nhiều máy chủ để nếu một máy chủ bị lỗi, những máy chủ khác vẫn có thể truy cập dữ liệu của bạn.
 
 Sharding is a way to scale your MongoDB deployment. It involves dividing your data across multiple servers, so that you can handle more traffic.
+
 Sharding là một cách để mở rộng quy mô triển khai MongoDB của bạn. Nó liên quan đến việc chia dữ liệu của bạn trên nhiều máy chủ để bạn có thể xử lý nhiều lưu lượng truy cập hơn.
 
 Aggregation Tích hợp

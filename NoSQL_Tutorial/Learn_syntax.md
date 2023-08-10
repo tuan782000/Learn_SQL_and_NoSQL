@@ -6,44 +6,61 @@ show dbs
 
 - Tạo collection trong DB
 
-Cú pháp: db.createCollection("name_collection")
+Cú pháp: 
+  db.createCollection("name_collection")
 
-ví dụ: db.createCollection("students")
+ví dụ: 
+  db.createCollection("students")
 
 - Xóa collection trong db
 
-Cú pháp: db.dropDatabase()
+Cú pháp: 
+  db.dropDatabase()
 
 
 Thêm bản ghi vào collection
 
-Cú pháp: db.name_collection.insertOne({key:"value"})
+Cú pháp: 
+  db.name_collection.insertOne({key:"value"})
 
-Ví dụ: db.students.insertOne({name: "Spongebob", age: 30, gpa:3.2}) 
+Ví dụ: 
+  db.students.insertOne({name: "Spongebob", age: 30, gpa:3.2}) 
 
 Tìm kiếm tất cả bản ghi trong 1 collection
 
-cú pháp:  db.ten_collection.find() // nếu trong find không truyền gì vào hết sẽ tìm kiếm tất cả
+cú pháp:  
 
-ví dụ:  db.students.find()
+  db.ten_collection.find() // nếu trong find không truyền gì vào hết sẽ tìm kiếm tất cả
+
+ví dụ:  
+
+  db.students.find()
 
 Thêm một lúc nhiều bản ghi vào collection, tiêu chí thêm lúc nhiều bản thì truyền vào mảng
 
-cú pháp: db.ten_collection.insertMany([{},{},{}]) // {} mỗi cặp đối tượng mình sẽ truyền key và value vào
+cú pháp: 
 
-ví dụ: db.students.insertMany([
+  db.ten_collection.insertMany([{},{},{}]) // {} mỗi cặp đối tượng mình sẽ truyền key và value vào
+
+ví dụ: 
+
+  db.students.insertMany([
 	{name: "Patricl", age: 38, gpa:1.5},
 	{name: "Sandy", age: 27, gpa:4.0},
 	{name: "Gary", age: 18, gpa:2.5}
        ])
 kết quả: trả về có true là thông báo thành công.
 
-kiểm tra: db.students.find()
+kiểm tra: 
+
+  db.students.find()
 
 
 Data type trong mongoDB
 
-ví dụ: db.students.insertOne({
+ví dụ: 
+
+   db.students.insertOne({
 				name: "Larry", 	 // kiểu chuỗi string
 				age: 32, 	 // kiểu số number
 				gpa: 2.8, 	 // kiểu số number không phân biệt số nguyên hay thực trong js
@@ -67,17 +84,20 @@ Nhận xét, bạn có thể thấy việc insert các thông tin có cả các 
 - sorting and limiting: sắp xếp và giới hạn.
 
 Thông thường ta hay tìm kiếm tất cả bằng 
+
 db.students.find()
 
 Nhưng giờ yêu cầu phải sắp xếp theo chuẩn hay thứ tự nào đó thì ta sẽ dùng sort
 
 Ví dụ sắp xếp điểm GPA từ cao xuống thấp
+
 db.students.find().sort({gpa:-1})
 
 Ví dụ sắp xếp điểm GPA từ thấp tăng lên cao
 db.students.find().sort({gpa: 1})
 
 Ví dụ sắp tên cũng tương tự
+
 db.students.find().sort({name: 1}) // từ a -> z
 
 db.students.find().sort({name: 1}) // từ z -> a
@@ -101,11 +121,13 @@ db.students.find().sort({gpa:1}).limit(1) // ai là người có điểm trung b
 - find: tìm cụ thể 1 ai đó
 cú pháp: db.students.find({query}, {projection}) 	Vậy query là: {key: value}  .Vậy projection là:  
 
-ví dụ:  db.students.find({gpa: 4.0})
+ví dụ:  
+	db.students.find({gpa: 4.0})
 	db.students.find({fullTime: false})
 	db.students.find({name: "Spongebob"})
 
 // truyền nhiều vào find
+
 	db.students.find({gpa: 4.0, fullTime: true})
 
 // truyền hai tham số vào hàm find, tham số thứ nhất tìm dữ liệu dựa vào đặc điểm, tham số thứ quy định dữ liệu nào được xuất hiện
@@ -114,6 +136,7 @@ ví dụ:  db.students.find({gpa: 4.0})
 
 	
 // cách ẩn đi các thông tin không nên nhìn thấy 
+
 	db.students.find({}, {_id: false, name:true}) // các cái trương nào được true thì sẽ hiển thị, nào false sẽ ẩn đi
 
 	db.students.find({}, {_id: false, name:true, gpa:true}) // các cái trương nào được true thì sẽ hiển thị, nào false sẽ ẩn đi
