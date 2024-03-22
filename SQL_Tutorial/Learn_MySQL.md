@@ -1,5 +1,6 @@
 #Lưu ý: MySQL có 1 chút khác biệt với SQL server về cú pháp.
-1.DATABASES
+
+1. DATABASES
 
 1.1 Tạo Database:
 Cú pháp:
